@@ -1,0 +1,12 @@
+<%= form_for @arti do |f|%> <!-- tworzy formularz (podawanie danych ) jako argument podajemy jakis pusty obiekt-->
+<p>
+ <%= f.label :title %>
+  <%= f.text_field :title %>
+<p>
+  <%= f.label :body%>
+  <%= f.text_field :body %>
+</p>
+
+<%= f.submit %> <!-- submite przekierowuje na metode create -->
+
+  <% end%>

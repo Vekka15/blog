@@ -1,0 +1,20 @@
+
+<b>Dzień dobry</b>
+
+
+<% if current_user.nil? %>
+<nav>
+<%= link_to("Sign in",new_user_session_path) %>
+<%= link_to("Sign up", new_user_registration_path) %>
+</nav>
+<%else%>
+<% @arti.each do |article| %>
+  <tr>
+    <p>  <%= link_to(article.title,article) %>:<%=article.body%></p> <!-- robimy <%= %> jak srodek ma sie wyswietlac a <% %> jak ma to byc czysty kod ruby bez wyswietlania -->
+   <!-- pierwszy argument tekst, drugi link -->
+    <%= link_to("Usun",article_path(article),data: {confirm: "Na pewno?"},method: :delete) %>
+  </tr>
+<%end%>
+<p><%= link_to("Nowy",new_article_path) %></p>
+<%= link_to("Sign out", destroy_user_session_path,method: :delete) %>
+<%end%>
