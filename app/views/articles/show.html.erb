@@ -1,7 +1,27 @@
 
-<p><%= @arti.title %></p>
+<h1><%= @arti.title %></h1>
+<b>Autor: <%= @arti.user.email %> </b>
 <p><%= @arti.body %></p>
 
-<p><%=link_to("Dodaj nowy komentarz",new_comment_path)%></p>
+<h3> Komentarze: </h3>
+
+<% @arti.comments.each do |com| %>
+  <p>Data: <%= com.created_at %></p>
+  <p><%= com.body %></p>
+<%end%>
+
+<!-- <% @comm.each{ |com|%>  INNA METODA NA WYPISYWANIE ELEMENTOW NAZLEZACYCH
+  <% if com.article_id==@arti.id%>
+  <p>
+<tr> Data:  <%=  com.created_at %></tr>
+</p>
+<p>
+  <%= com.body %>
+</p>
+<%end%>
+
+<%}%> -->
+
+<p><%=link_to("Dodaj nowy komentarz", new_article_comment_path(@arti))%></p>
 
 <p><%= link_to("Wróć",articles_path) %>

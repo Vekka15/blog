@@ -17,4 +17,12 @@
 <%end%>
 <p><%= link_to("Nowy",new_article_path) %></p>
 <%= link_to("Sign out", destroy_user_session_path,method: :delete) %>
+
+<%= form_tag('/articles/search', method: "get") do%>
+<p>
+  Podaj tytul artykulu:
+  <%= text_field_tag "name" %>
+  <%= submit_tag "Search"%>
+</p>
+<%end%>
 <%end%>
