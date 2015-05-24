@@ -14,7 +14,7 @@
  *= require_self
  */
  body{
-   background-color: #dd4e4c;
+   background-color :#dd4e4c;
  }
  h1{
    color: red
@@ -40,3 +40,17 @@
    top: 45px;
    left: 1200px;
  }
+
+ .user_head{
+   position: fixed;
+   top: 10px;
+   left: 1000px;
+ }
+
+.white_space{
+  background-color: white;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 200px;
+
+}

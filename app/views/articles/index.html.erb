@@ -1,9 +1,14 @@
 
 <h3 id="naglowek">BLOGisLOVE BLOGisLIFE</h3>
 
+<div class="user_head">
+  Witaj, <%=link_to(current_user.username,user_path(current_user))%>
+  <%= link_to("Sign out", destroy_user_session_path,method: :delete) %>
+</div>
+
 <p>
 <%= form_tag('/articles/search', method: :get) do%>
-<div class="search_text_field_tag"> <%= text_field_tag "name" %></div>
+<div class="search_text_field_tag"> <%= text_field_tag :name %></div>
 <div class="search_button"> <%= submit_tag "Search"%></div>
 <%end%>
 </p>
@@ -15,15 +20,16 @@
 <%= link_to("Sign up", new_user_registration_path) %>
 </nav>
 <%else%>
+<div class="white_space">
 <% @arti.each do |article| %>
   <tr>
-    <p>  <%= link_to(article.title,article) %>:<%=article.body%><!-- robimy <%= %> jak srodek ma sie wyswietlac a <% %> jak ma to byc czysty kod ruby bez wyswietlania -->
+    <p>  <%= link_to(article.title,article) %><br/><%=article.body%><!-- robimy <%= %> jak srodek ma sie wyswietlac a <% %> jak ma to byc czysty kod ruby bez wyswietlania -->
    <!-- pierwszy argument tekst, drugi link -->
    <% if article.user_id==current_user.id %>
     <%= link_to("Usun",article_path(article),data: {confirm: "Na pewno?"},method: :delete) %></p>
     <%end%>
   </tr>
 <%end%>
+</div>
 <p><%= link_to("Nowy",new_article_path) %></p>
-<%= link_to("Sign out", destroy_user_session_path,method: :delete) %>
 <%end%>
