@@ -1,0 +1,7 @@
+<%= form_for @arti do |f| %>
+<p><%= f.label :title %></p>
+<p><%= f.text_field :title %></p>
+<p><%= f.label :body %></p>
+<p><%= f.text_area :body, :rows => 20, :cols => 30 %></p>
+<%= f.submit %>
+<%end%>

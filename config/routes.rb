@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/articles/search', to: 'articles#search'
   devise_for :users
+  resources :users
  resources :articles do
  resources :comments
  end

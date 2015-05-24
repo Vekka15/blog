@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   background-color: #dd4e4c;
+ }
+ h1{
+   color: red
+ }
+
+ h3#naglowek{
+   text-align: left top;
+   color: white;
+   font-family: "Verdana";
+   font-size:  35px;
+   background-color: #9a3635;
+ }
+
+ .search_text_field_tag{
+    position: fixed;
+    top: 45px;
+    left: 950px;
+
+ }
+
+ .search_button{
+   position: fixed;
+   top: 45px;
+   left: 1200px;
+ }

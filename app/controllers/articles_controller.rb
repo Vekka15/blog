@@ -35,6 +35,16 @@ class ArticlesController < ApplicationController
       }
   end
 
+  def edit
+    @arti=Article.find(params[:id])
+  end
+
+  def update
+    arti=Article.find(params[:id])
+    arti.update_attributes(article_params)
+    redirect_to arti
+  end
+
   :private
   def article_params #umozliwia dostep do atrybutow stosowany do obrony danych przed innymi uzytkownikami
     params.require(:article).permit(:title,:body)

@@ -1,6 +1,7 @@
 
 <h1><%= @arti.title %></h1>
-<b>Autor: <%= @arti.user.email %> </b>
+<b>Autor: <%= @arti.user.email %><% if @arti.user_id==current_user.id%> <%= link_to("Edytuj", edit_article_path(@arti)) %><%end%></b>
+<%= link_to(@arti.user.email,user_path(@arti.user)) %>
 <p><%= @arti.body %></p>
 
 <h3> Komentarze: </h3>
