@@ -1,8 +1,12 @@
 
+
+
+<div class="white_space">
 <h1><%= @arti.title %></h1>
 <b>Autor: <%= @arti.user.email %><% if @arti.user_id==current_user.id%> <%= link_to("Edytuj", edit_article_path(@arti)) %><%end%></b>
 <%= link_to(@arti.user.email,user_path(@arti.user)) %>
-<p><%= @arti.body %></p>
+<p "white_space"><%= @arti.body %></p>
+
 
 <h3> Komentarze: </h3>
 
@@ -11,18 +15,6 @@
   <p><%= com.body %></p>
 <%end%>
 
-<!-- <% @comm.each{ |com|%>  INNA METODA NA WYPISYWANIE ELEMENTOW NAZLEZACYCH
-  <% if com.article_id==@arti.id%>
-  <p>
-<tr> Data:  <%=  com.created_at %></tr>
-</p>
-<p>
-  <%= com.body %>
-</p>
-<%end%>
-
-<%}%> -->
-
 <p><%=link_to("Dodaj nowy komentarz", new_article_comment_path(@arti))%></p>
-
+</div>
 <p><%= link_to("Wróć",articles_path) %>
